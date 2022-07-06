@@ -1,0 +1,6 @@
+# 网站登录页https://www.xxx.com/login
+website: https://www.xxx.com/login
+# 用户名
+user_name: xxxxxxx
+# 密码
+password: xxxxxxx
