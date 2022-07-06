@@ -2,4 +2,5 @@ config.yaml
 .idea/
 test/
 log.txt
-config .yaml.bak
+config1.yaml
+error.txt
