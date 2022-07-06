@@ -3,6 +3,7 @@ from selenium.webdriver import ChromeOptions
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
+import os
 
 
 import time
@@ -35,6 +36,8 @@ if __name__ == '__main__':
     website = config["website"]
     user_name = config["user_name"]
     password = config['password']
+    code_location = config['code_location']
+
     # 创建浏览器
     driver = webdriver.Chrome(service=service, chrome_options=chrome_options)
     driver.maximize_window()
@@ -48,12 +51,18 @@ if __name__ == '__main__':
     time.sleep(30)
     # driver.find_element(By.XPATH,'//*[@id="ui_menu"]/div/div/ul/li[1]').click()
     # time.sleep(5)
-    if is_exits_element(By.XPATH, '//*[@id="checkin"]'):
-        driver.find_element(By.XPATH,'//*[@id="checkin"]').click()
-        time.sleep(30)
-        driver.find_element(By.XPATH, '//*[@id="result_ok"]').click()
-        messege = driver.find_element(By.XPATH,'//*[@id="checkin-msg"]').text
-        print(messege)
-    else:
-        print('签到失败')
+    with open(os.path.join(code_location, 'log.txt'), 'a') as log:
+
+        if is_exits_element(By.XPATH, '//*[@id="checkin"]'):
+            driver.find_element(By.XPATH,'//*[@id="checkin"]').click()
+            time.sleep(30)
+            driver.find_element(By.XPATH, '//*[@id="result_ok"]').click()
+            messege = driver.find_element(By.XPATH,'//*[@id="checkin-msg"]').text
+            print(messege)
+            log.write(messege)
+            log.write('\n')
+        else:
+            print('签到失败')
+            log.write('签到失败')
+            log.write('\n')
     driver.quit()
