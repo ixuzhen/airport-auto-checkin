@@ -36,7 +36,7 @@ if __name__ == '__main__':
     website = config["website"]
     user_name = config["user_name"]
     password = config['password']
-    code_location = config['code_location']
+    code_location = config['codelocation']
 
     # 创建浏览器
     driver = webdriver.Chrome(service=service, chrome_options=chrome_options)
