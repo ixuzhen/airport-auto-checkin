@@ -27,7 +27,7 @@ def get_yaml_data(yaml_file):
 if __name__ == '__main__':
     # 设置为无头
     chrome_options = ChromeOptions()
-    # chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--headless')
     # 安装驱动
     service = Service(executable_path=ChromeDriverManager().install())
     # 加载配置
