@@ -4,3 +4,5 @@ website: https://www.xxx.com/login
 user_name: xxxxxxx
 # 密码
 password: xxxxxxx
+# 代码存放位置
+codelocation： /home/xz/airport-auto-checkin
